@@ -1,0 +1,17 @@
+﻿{% extends 'main.html' %}
+{% block car_choosing %}
+<form action='load_mod/' style="float: left; margin-top: 30px">
+
+    <label>
+        поиск по модели:
+        <select name="model">
+            <option value_selected="default_value">выберите модель</option>
+            {% for model in models_set %}
+            <option value={{model}}>{{ model }}</option>
+            {% endfor %}
+            <input type="submit" name="go" value="выбрать">
+        </select>
+    </label>
+
+</form>
+{% endblock %}

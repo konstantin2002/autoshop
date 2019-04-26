@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN”>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<html lang=”ru”>
+<head>
+    <title>автосайт</title>
+</head>
+<body bgcolor="palegreen">
+	<header style="background-color: darkolivegreen; height: 125px; position: fixed; top: 0; width: 100%">
+		<span id='logo_image'>
+			<img src="{% static 'images/logo_fox.png' %}" alt="logo_image" height="125" width="200">
+		</span>
+		<div>
+			    <form action='search/' style="float: left; margin-top: 30px">
+			    	<input type="text" name="searcher" placeholder="Поиск" title="введите винкод или название необходимого продукта">
+			    	<input type="submit" name="submit_button" value="искать">
+			    </form>
+		</div>
+		<div style="float: left; margin-left: 20%">
+			<h1 id="site_name">FoxCar</h1>
+		</div>
+		<span id="account" style="margin-right: 10px">
+		   		<form action='login/'>
+				<p><input type="text" name="e-mail" placeholder="e-mail"><br>
+				<input type="password" name="password" placeholder="password"><br>
+				<input type="submit" name="submit_button" value="Войти"></p>
+			    </form>
+				<a href="/registration" target="_blank">Регистрация</a>
+		</span>
+		<span id="contacts" style="margin-right: 20px">
+				<p>
+					+38 067 333 22 11<br>
+					ул. В.Гетьмана'30
+				</p>
+		</span>
+		
+	</header>
+
+    <div>
+        <span id="car_choosing" style="float: right;">
+            {% block car_choosing %}
+            <form action='load_brand/' style="float: left; margin-top: 30px">
+                
+                <label>
+                    поиск по модели:
+                    <select name="brand">
+                        <option value_selected="default_value">выберите марку</option>
+                        <option value="Opel">Opel</option>
+                        <option value="Subaru">Subaru</option>
+                        <input type="submit" name="go" value="выбрать">
+                    </select>
+                </label>
+                
+            </form>
+            {% endblock %}
+        </span>
+        <aside style="margin-top: 130px;">
+            <form action="">
+                <button class="b1" type="submit" value="autoparts" formaction="/pb/autoparts/">АВТОЗАПЧАСТИ</button>
+                <button class="b1" type="submit" value="tools" formaction="/pb/tools/">ИНСТРУМЕНТЫ</button>
+                <button class="b1" type="submit" value="oil" formaction="/pb/oil/">МАСЛО</button>
+                <button class="b1" type="submit" value="tires" formaction="/pb/tires/">ШИНЫ</button>
+                <button class="b1" type="submit" value="accessories" formaction="/pb/accessories/">АКСЕССУАРЫ</button>
+                <button class="b1" type="submit" value="uncategorized" formaction="/pb/uncategorized/">РАЗНОЕ</button>
+            </form>
+            
+        </aside>
+        <main>
+            {% if 'search_result' %}
+            <p style="font: 25; color: green">{{ search_result }}</p>
+            {% endif %}
+            <div style="float: right">{% block pushed_button %}{% endblock %}</div>
+        </main>
+
+    </div>
+    <footer>
+    	<div style="background-color: darkolivegreen; position: fixed; bottom: 0; width: 100%; text-align: center;">
+    		<p id="foottext">All rights are reserved</p>
+    	</div>
+    </footer>
+</body>
+</html>

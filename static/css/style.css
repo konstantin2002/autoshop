@@ -1,0 +1,13 @@
+
+#contacts{color: white; float: right; font: bold italic 25px serif; }
+#logo_image{ float: left; }
+#account{ float: right }
+#site_name{ color: darkorange; font-size: 60;}
+.b1{width: 200px; height: 60px; border-radius: 12px; background-color: chocolate; color:white; font-size: 20;margin-bottom: 5px;}
+#foottext {font-size: 20; color: white;}
+body {
+    background: white url("images/bgimage4.jpg") no-repeat; background-size: cover;
+}
+aside{width: 200px;}
+
+

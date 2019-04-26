@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body style="background-color:cadetblue">
+    <p>You searched: <strong>{{query}}</strong></p>
+    {% if found_cars %}
+        <p>There are {{found_cars|length}} cars found.</p>
+        <ul>
+            {% for car in found_cars %}
+            <li>{{ car.brand }} | {{ car.mod }} | {{ car.engine_type }} | {{ car.year_made }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There aren't any car found.</p>
+    {% endif %}
+</body>
+</html>
